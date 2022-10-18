@@ -1,0 +1,9 @@
+urlFilenameViewController=kr.co.yooooon.common.servlet.mvc.UrlFilenameViewController
+BoxOfficeController=kr.co.yooooon.common.servlet.mvc.BoxOfficeController
+Covid19InfoController=kr.co.yooooon.common.servlet.mvc.Covid19InfoController
+AirPollutionController=kr.co.yooooon.common.servlet.mvc.AirPollutionController
+
+empLoginController=kr.co.yooooon.base.controller.EmpLoginController
+empLogoutController=kr.co.yooooon.base.controller.EmpLogoutController
+searchCompanyCodeController=kr.co.yooooon.base.controller.SearchCompanyCodeController
+searchEmpCodeController=kr.co.yooooon.base.controller.SearchEmpCodeController

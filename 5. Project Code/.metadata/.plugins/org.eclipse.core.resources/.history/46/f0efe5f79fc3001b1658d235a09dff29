@@ -1,0 +1,179 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>CODE</title>
+<link rel="stylesheet" href="${pageContext.request.contextPath}/script/jquery-ui/jquery-ui.min.css">
+<script src="${pageContext.request.contextPath}/script/jquery/jquery-3.3.1.min.js"></script>
+<script src="https://unpkg.com/ag-grid-community/dist/ag-grid-community.min.noStyle.js"></script>
+<link rel="stylesheet" href="https://unpkg.com/ag-grid-community/dist/styles/ag-grid.css">
+<link rel="stylesheet" href="https://unpkg.com/ag-grid-community/dist/styles/ag-theme-alpine.css">
+<script>
+
+	var gridOptions;
+	var rowData;
+	
+	$(document).ready(function() {
+		if ("${param.code}" == "addPayList") { 
+			//showCodeGrid();
+			//addPayList();
+		} 
+		
+	});
+	var gridOptions = {
+		defaultColDef : {
+			resizable : true,
+			sortable : true,
+			editable : true
+		},
+		columnDefs : columnDefs,
+		rowData : null,
+		onColumnResized : onColumnResized,
+		onGridReady : function(params) {
+			setTimeout(function() {
+				params.api.setRowData(data);
+			}, 2000);
+		}
+
+	};
+</script>
+</head>
+<body>
+		<input type="button" value="추가" onclick="addFunc()">
+        <input type="button" value="삭제" onclick="removeFunc()">
+        <input type="button" value="일괄처리" onclick="process()">
+        <div id="myGrid" style="height: 600px;width:500px;" class="ag-theme-alpine"></div>
+
+        <script type="text/javascript" charset="utf-8">
+            // specify the columns
+            var rowData = [];
+            var memberData = { member: [] };
+            var processData = { insert: [], delete: [], update: [] };
+            let existSize = 0;
+
+            const columnDefs = [
+                { checkboxSelection: true, editable: false },
+                { headerName: "ID", field: "id", width: 150 },
+                { headerName: "PW", field: "pw", width: 150 },
+                { headerName: "ADDR", field: "addr", width: 150 },
+                { headerName: "TEL", field: "tel", width: 150 },
+            ];
+
+            // let the grid know which columns to use
+            const gridOptions = {
+                columnDefs: columnDefs,
+                rowSelection: 'multiple',
+                editType: 'fullRow',
+                suppressRowClickSelection: true,
+                defaultColDef: { width: 100, editable: true },
+                onRowValueChanged: rowValueChangedFunc
+            };
+
+            // lookup the container we want the Grid to use
+            const eGridDiv = document.querySelector('#myGrid');
+
+            // create the grid passing in the div to use together with the columns &amp; data we want to use
+            new agGrid.Grid(eGridDiv, gridOptions);
+
+            agGrid.simpleHttpRequest({ url: 'list.jsp' }).then(data => {
+                gridOptions.api.setRowData(data.list);
+                data.list.forEach(e => {
+                    rowData.push(e);
+                    e.status = "normal";
+                    let member = { //그냥 정렬된걸로 보고싶어서 넣음
+                        id: e.id,
+                        pw: e.pw,
+                        addr: e.addr,
+                        tel: e.tel,
+                        status: e.status
+                    }
+                    memberData.member.push(member);
+                })
+                existSize = memberData.member.length;
+            });
+
+            function addFunc() {
+                memberData.member.push({ id: "", pw: "", addr: "", tel: "", status: "insert" });
+                gridOptions.api.setRowData(memberData.member);
+            }
+
+            function removeFunc() {
+                let selectedInfo = gridOptions.api.getSelectedNodes();
+                let cnt = 0;
+                let comCnt = 0;
+                selectedInfo.forEach(e => {
+                    let index = e.rowIndex - cnt;
+                    let removeMember = memberData.member[index];
+                    if (++e.rowIndex <= existSize) {
+                        let c1 = 0;
+                        removeMember.status = "remove";
+                        processData.delete.push(removeMember);
+                        comCnt++;
+                        processData.update.forEach(e => {
+                            if (e.id == removeMember.id) {
+                                processData.update.splice(c1, 1);
+                            }
+                            c1++;
+                        })
+                    } else {
+                        let c2 = 0;
+                        processData.insert.forEach(e => {
+                            if (e.id == removeMember.id) {
+                                processData.update.splice(c2, 1);
+                            }
+                            c2++;
+                        })
+                    }
+                    memberData.member.splice(index, 1);
+                    cnt++;
+                })
+                existSize -= comCnt;
+                gridOptions.api.setRowData(memberData.member);
+            }
+
+            function rowValueChangedFunc(e) {
+                if (e.data.status == "normal" || e.data.status == "update") {
+                    e.data.status = "update";
+                    processData.update.forEach(e2 => {
+                        if (e.data.id == e2.id) {
+                            e2.id = e.data.id;
+                            e2.pw = e.data.pw;
+                            e2.addr = e.data.addr;
+                            e2.tel = e.data.tel;
+                            return;
+                        }
+                    })
+                    processData.update.push(e.data);
+                } else if (e.data.status = "insert") {
+                    console.log(e.data);
+                    processData.insert.forEach(e2 => {
+                        if (e.data.id == e2.id) {
+                            e2.id = e.data.id;
+                            e2.pw = e.data.pw;
+                            e2.addr = e.data.addr;
+                            e2.tel = e.data.tel;
+                            return;
+                        }
+                    })
+                    processData.insert.push(e.data);
+                    console.log(processData.insert);
+                }
+            }
+
+            function process() {
+                console.log(processData);
+                for (let i = existSize; i < memberData.member.length; i++) {
+                    if (memberData.member[i].id == "" || memberData.member[i].pw == "") {
+                        alert("회원을 추가하실 때 ID혹은 PW를 누락하셨습니다.");
+                        console.log(processData.update);
+                        return;
+                    }
+                }
+
+            }
+        </script> 
+        
+</body> 
+</html>

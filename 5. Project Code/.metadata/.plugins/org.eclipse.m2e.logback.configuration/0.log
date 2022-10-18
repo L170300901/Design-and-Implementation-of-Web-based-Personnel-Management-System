@@ -1,0 +1,3 @@
+2021-08-10 14:02:21,238 [Worker-15: Enabling Maven Dependency Management] INFO  o.e.m.w.i.f.ResourceFilteringBuildParticipant - Cleaning filtered folder for insaSpring2
+2021-08-10 14:02:21,801 [Worker-6: Building] INFO  o.e.m.w.i.f.ResourceFilteringBuildParticipant - Changed resources require a complete clean of filtered resources of insaSpring2
+2021-08-10 14:02:21,802 [Worker-6: Building] INFO  o.e.m.w.i.f.ResourceFilteringBuildParticipant - Executing resource filtering for insaSpring2

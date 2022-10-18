@@ -1,0 +1,75 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>호봉일괄등록</title>
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/script/jquery-ui/jquery-ui.min.css">
+<script
+	src="${pageContext.request.contextPath}/script/jquery/jquery-3.3.1.min.js"></script>
+
+<script>
+
+	var gridOptions;
+	var rowData;
+	
+	$(document).ready(function() {
+		showCodeGrid();
+		if ("${param.code}" == "addPayList") { 
+			addPayList();
+		} 
+		
+	});	
+	
+	function addPayList() {
+		
+		
+	}
+	
+
+			
+</script>
+</head>
+<body>
+	<div>
+		<div style="float: right">
+			<div style="width: 1000px; height: 1000px;">
+
+
+				<div class="tabcontent">
+					<!-- 1번째줄-->
+					<div style="width: 900px; height: 350px;">
+						<!-- 1번째줄 1번째칸 -->
+						<div
+							style="border: 1px solid #FAECC5; writing-mode: tb-rl; float: left; width: 3%; height: 350px;">
+							<center>▶ 개인정보</center>
+						</div>
+						<!-- 1번째줄 2번째칸 -->
+						<div style="float: left; width: 25%; height: 350px;">
+							<div>
+								<center>
+									<img id="profileImg"
+										src="${pageContext.request.contextPath}/profile/profile.png"
+										width="180px" height="200px"><br> <input
+										type="hidden" name="empCode" id="emp_img_empCode"> <input
+										type="file" name="empImgFile" style="display: none;"
+										id="emp_img_file" onChange="readURL(this)" accept="image/*">
+
+									<br />
+									<button type="button" style="width: 180px;" class="btn info"
+										id="findPhoto">사진등록</button>
+									<br>
+								</center>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+</body>
+</html>

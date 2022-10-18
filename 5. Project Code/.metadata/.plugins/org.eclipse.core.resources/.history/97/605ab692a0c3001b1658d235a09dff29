@@ -1,0 +1,83 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>CODE</title>
+<link rel="stylesheet" href="${pageContext.request.contextPath}/script/jquery-ui/jquery-ui.min.css">
+<script src="${pageContext.request.contextPath}/script/jquery/jquery-3.3.1.min.js"></script>
+<script src="https://unpkg.com/ag-grid-community/dist/ag-grid-community.min.noStyle.js"></script>
+<link rel="stylesheet" href="https://unpkg.com/ag-grid-community/dist/styles/ag-grid.css">
+<link rel="stylesheet" href="https://unpkg.com/ag-grid-community/dist/styles/ag-theme-alpine.css">
+<script>
+	
+	$(document).ready(function() {
+		if ("${param.code}" == "addPayList") { 
+			//showCodeGrid();
+			//addPayList();
+		} 
+		
+	});
+</script>
+</head>
+<body>
+		<input type="button" value="추가" onclick="addFunc()">
+        <div id="myGrid" style="height: 200px;width:300px;" class="ag-theme-alpine"></div>
+
+        <script type="text/javascript" charset="utf-8">
+            // specify the columns
+            var rowData = [];
+            var memberData = { member: [] };
+            var processData = { insert: [], delete: [], update: [] };
+            let existSize = 0;
+
+            const columnDefs = [
+                { headerName: "호봉", field: "hobong", width: 100 },
+                { headerName: "초기치", field: "initialValue", width: 100 },
+                { headerName: "증가액", field: "increaseAmount", width: 100 }
+              
+            ];
+
+            // let the grid know which columns to use
+            const gridOptions = {
+                columnDefs: columnDefs,
+                rowSelection: 'multiple',
+                editType: 'fullRow',
+                suppressRowClickSelection: true,
+                defaultColDef: { width: 100, editable: true },
+                onRowValueChanged: rowValueChangedFunc
+            };
+
+            // lookup the container we want the Grid to use
+            const eGridDiv = document.querySelector('#myGrid');
+
+            // create the grid passing in the div to use together with the columns &amp; data we want to use
+            new agGrid.Grid(eGridDiv, gridOptions);
+
+            agGrid.simpleHttpRequest({ url: 'list.jsp' }).then(data => {
+                gridOptions.api.setRowData(data.list);
+                data.list.forEach(e => {
+                    rowData.push(e);
+                    e.status = "normal";
+                    let member = { //그냥 정렬된걸로 보고싶어서 넣음
+                        id: e.id,
+                        pw: e.pw,
+                        addr: e.addr,
+                        tel: e.tel,
+                        status: e.status
+                    }
+                    memberData.member.push(member);
+                })
+                existSize = memberData.member.length;
+            });
+
+            function addFunc() {
+                memberData.member.push({ id: "", pw: "", addr: "", tel: "", status: "insert" });
+                gridOptions.api.setRowData(memberData.member);
+            }
+
+        </script> 
+        
+</body> 
+</html>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="kr.co.yooooon.board.applicationService.BoardApplicationService"/>
+<fullyQualifiedTypeName name="kr.co.yooooon.board.applicationService.BoardApplicationServiceImpl"/>
+<fullyQualifiedTypeName name="kr.co.yooooon.base.exception.IdNotFoundException"/>
+<fullyQualifiedTypeName name="kr.co.yooooon.board.exception.IdNotFoundException"/>
+<fullyQualifiedTypeName name="kr.co.yooooon.board.exception.PwMissMatchException"/>
+<fullyQualifiedTypeName name="kr.co.yooooon.base.sf.BaseServiceFacade"/>
+<fullyQualifiedTypeName name="kr.co.yooooon.board.sf.BoardServiceFacadeImpl"/>
+<fullyQualifiedTypeName name="kr.co.yooooon.base.dao.HolidayDAO"/>
+<fullyQualifiedTypeName name="kr.co.yooooon.board.dao.BoardDAO"/>
+<fullyQualifiedTypeName name="kr.co.yooooon.board.dao.BoardDAOImpl"/>
+<fullyQualifiedTypeName name="kr.co.yooooon.board.to.BoardTO"/>
+<fullyQualifiedTypeName name="kr.co.yooooon.chat.exeption.IdNotFoundException"/>
+<fullyQualifiedTypeName name="kr.co.yooooon.chat.exeption.PwMissMatchException"/>
+<fullyQualifiedTypeName name="kr.co.yooooon.base.exception.PwMissMatchException"/>
+<fullyQualifiedTypeName name="kr.co.yooooon.chat.applicationService.ChatApplicationServiceImpl"/>
+<fullyQualifiedTypeName name="kr.co.yooooon.chat.applicationService.ChatApplicationService"/>
+<fullyQualifiedTypeName name="kr.co.yooooon.chat.sf.ChatSubmitServiceFacade"/>
+<fullyQualifiedTypeName name="kr.co.yooooon.chat.to.ChatTO"/>
+<fullyQualifiedTypeName name="kr.co.yooooon.chat.exception.IdNotFoundException"/>
+<fullyQualifiedTypeName name="kr.co.yooooon.chat.exception.PwMissMatchException"/>
+<fullyQualifiedTypeName name="com.google.gson.Gson"/>
+<fullyQualifiedTypeName name="net.sf.json.JSONObject"/>
+<fullyQualifiedTypeName name="kr.co.yooooon.common.exception.DataAccessException"/>
+<fullyQualifiedTypeName name="kr.co.yooooon.hr.emp_new.to.Emp_newTO"/>
+<fullyQualifiedTypeName name="kr.co.yooooon.hr.emp.applicationService.EmpApplicationService"/>
+<fullyQualifiedTypeName name="kr.co.yooooon.hr.emp_new.dao.EmpDAO"/>
+<fullyQualifiedTypeName name="kr.co.yooooon.hr.emp_new.sf.EmpServiceFacade"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="kr.co.yooooon.hr.emp_new.applicationService.EmpApplicationService"/>
+<fullyQualifiedTypeName name="kr.co.yooooon.hr.emp_new.sf.EmpServiceFacadeImpl"/>
+<fullyQualifiedTypeName name="kr.co.yooooon.hr.emp_new.sf.EmpCodeServiceFacadeImpl"/>
+<fullyQualifiedTypeName name="kr.co.yooooon.hr.emp_new.sf.EmpCodeServiceFacade"/>
+<fullyQualifiedTypeName name="kr.co.yooooon.hr.emp_new.dao.EmpCodeDAO"/>
+<fullyQualifiedTypeName name="kr.co.yooooon.base.dao.loginCodeDAO"/>
+<fullyQualifiedTypeName name="kr.co.yooooon.base.to.LoginCheckTO"/>
+<fullyQualifiedTypeName name="kr.co.yooooon.base.to.BaseTO"/>
+<fullyQualifiedTypeName name="javax.servlet.FilterConfig"/>
+</qualifiedTypeNameHistroy>

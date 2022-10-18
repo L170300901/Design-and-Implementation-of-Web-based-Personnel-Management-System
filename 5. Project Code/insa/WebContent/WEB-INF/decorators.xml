@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!-- 정의된 decorator 파일들이 있는 기본 디렉토리를 설정 -->
+<decorators defaultdir="/WEB-INF/jsp/decorator">
+	<!-- controller를 호출하는 url 값이 정의된 패턴에 해당한다면 decorator를 사용하지 않음 -->
+	<excludes>
+		<pattern>/member/list.do</pattern>
+		<pattern>/base/codeWindow.html*</pattern>
+		<pattern>/base/postWindow.html*</pattern>
+		<pattern>/new_emp/codeWindow.html*</pattern>
+		<pattern>/loginCodeWindow.html*</pattern>
+		<pattern>/base/payCheckWindow.html*</pattern>
+		<pattern>/base/detailCodeWindow.html*</pattern>
+		<pattern>/base/agWindow.html*</pattern>
+	</excludes>
+	<decorator name="main" page="decorator.jsp">
+		<pattern>/*</pattern>
+	</decorator>
+</decorators>

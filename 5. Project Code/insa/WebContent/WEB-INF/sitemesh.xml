@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sitemesh>
+	<!--decorator 결정--> 
+	<property name="decorators-file" value="/WEB-INF/decorators.xml" /><!-- 데코레이터 파일을 불러온다.  -->
+	<!--  decorators.xml 에 정의된 excludes 태그를 사용한다는 선언이다. decorators.xml 이 아닌 별도의 파일을 생성할 수 도 있다.-->
+	<excludes file="${decorators-file}" /> 
+	
+	<page-parsers>
+		<parser content-type="text/html" class="com.opensymphony.module.sitemesh.parser.HTMLPageParser" />
+		<parser content-type="text/html;charset=EUC-KR" class="com.opensymphony.module.sitemesh.parser.HTMLPageParser" />
+	</page-parsers>
+
+	
+	 <!-- mapper결정 : 설정파일 사용하여 decorator정하기--> 
+	 <!-- ConfigDecoratorMapper : decorators.xml 에 정의된 decorator를 사용한다. --> 
+	<decorator-mappers>
+		<mapper class="com.opensymphony.module.sitemesh.mapper.ConfigDecoratorMapper">
+			<param name="config" value="${decorators-file}" />
+		</mapper>
+	</decorator-mappers>
+</sitemesh>  

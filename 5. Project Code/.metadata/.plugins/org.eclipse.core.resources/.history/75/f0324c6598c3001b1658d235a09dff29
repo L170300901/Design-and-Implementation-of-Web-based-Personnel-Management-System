@@ -1,0 +1,50 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>호봉일괄등록</title>
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/script/jquery-ui/jquery-ui.min.css">
+<script
+	src="${pageContext.request.contextPath}/script/jquery/jquery-3.3.1.min.js"></script>
+
+<script>
+		
+</script>
+</head>
+<body>
+	<div>
+		<div>
+			<div>
+				<table border="1" bordercolor="#D5D5D5" width ="200" height="300">
+					<tr bgcolor="#BDBDBD" align ="center">
+						<td>
+							호봉
+						</td>
+						<td>
+							초기치
+						</td>
+						<td>
+							증가액
+						</td>
+					</tr>
+					<tr>
+						<td>
+							기본급
+						</td>
+						<td>
+							
+						</td>
+						<td>
+							
+						</td>
+					</tr>
+				</table>
+				
+			</div>
+		</div>
+	</div>
+</body>
+</html>

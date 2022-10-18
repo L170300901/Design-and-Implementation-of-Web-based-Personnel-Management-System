@@ -1,0 +1,46 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>호봉일괄등록</title>
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/script/jquery-ui/jquery-ui.min.css">
+<script
+	src="${pageContext.request.contextPath}/script/jquery/jquery-3.3.1.min.js"></script>
+
+<script>
+
+	var gridOptions;
+	var rowData;
+	
+	$(document).ready(function() {
+		showCodeGrid();
+		if ("${param.code}" == "addPayList") { 
+			addPayList();
+		} 
+		
+	});	
+	
+	function addPayList() {
+		
+		
+	}
+	
+
+			
+</script>
+</head>
+<body>
+	<div>
+		<div style="float: left">
+			<div style="border: 1px solid #FAECC5; width: 300px; height: 100px;">
+				dd
+			</div>
+		</div>
+	</div>
+
+
+</body>
+</html>

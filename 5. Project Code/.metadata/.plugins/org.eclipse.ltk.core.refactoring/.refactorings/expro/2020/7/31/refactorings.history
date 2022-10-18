@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;board&apos; to &apos;jsp&apos;&#x0D;&#x0A;- Original project: &apos;expro&apos;&#x0D;&#x0A;- Destination element: &apos;jsp&apos;&#x0D;&#x0A;- Original element: &apos;board&apos;" description="Copy folder" element1="WebContent/board" files="0" flags="589830" folders="1" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1595990006121" target="/insa/WebContent/WEB-INF/jsp" units="0" version="1.0"/>
+</session>

@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="2.5">
+	<display-name>yooooon</display-name>
+	<welcome-file-list>
+		<welcome-file>/WEB-INF/jsp/loginForm.jsp</welcome-file>
+	</welcome-file-list>
+	<listener>
+		<listener-class>kr.co.yooooon.common.listener.CountSsesionListener</listener-class>
+	</listener>
+
+	<filter>
+		<filter-name>sitemesh</filter-name>
+		<filter-class>com.opensymphony.module.sitemesh.filter.PageFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>sitemesh</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	
+
+
+	<servlet>
+		<servlet-name>main</servlet-name>
+		<servlet-class>kr.co.yooooon.common.servlet.DispatcherServlet</servlet-class>
+		<init-param>
+			<param-name>configFile</param-name>
+			<param-value>/WEB-INF/config/main.properties</param-value>
+		</init-param>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>main</servlet-name>
+		<url-pattern>*.do</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>main</servlet-name>
+		<url-pattern>*.html</url-pattern>
+	</servlet-mapping>
+
+
+	<servlet>
+		<servlet-name>emp</servlet-name>
+		<servlet-class>kr.co.yooooon.common.servlet.DispatcherServlet</servlet-class>
+		<init-param>
+			<param-name>configFile</param-name>
+			<param-value>/WEB-INF/config/emp.properties</param-value>
+		</init-param>
+		<load-on-startup>2</load-on-startup>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>emp</servlet-name>
+		<url-pattern>/emp/*</url-pattern>
+	</servlet-mapping>
+
+
+	<servlet>
+		<servlet-name>base</servlet-name>
+		<servlet-class>kr.co.yooooon.common.servlet.DispatcherServlet</servlet-class>
+		<init-param>
+			<param-name>configFile</param-name>
+			<param-value>/WEB-INF/config/base.properties</param-value>
+		</init-param>
+		<load-on-startup>3</load-on-startup>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>base</servlet-name>
+		<url-pattern>/base/*</url-pattern>
+	</servlet-mapping>
+
+
+	<servlet>
+		<description></description>
+		<servlet-name>attendance</servlet-name>
+		<servlet-class>kr.co.yooooon.common.servlet.DispatcherServlet</servlet-class>
+		<init-param>
+			<param-name>configFile</param-name>
+			<param-value>/WEB-INF/config/attendance.properties</param-value>
+		</init-param>
+		<load-on-startup>4</load-on-startup>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>attendance</servlet-name>
+		<url-pattern>/attendance/*</url-pattern>
+	</servlet-mapping>
+
+
+	<servlet>
+		<description></description>
+		<servlet-name>salary</servlet-name>
+		<servlet-class>kr.co.yooooon.common.servlet.DispatcherServlet</servlet-class>
+		<init-param>
+			<param-name>configFile</param-name>
+			<param-value>/WEB-INF/config/salary.properties</param-value>
+		</init-param>
+		<load-on-startup>5</load-on-startup>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>salary</servlet-name>
+		<url-pattern>/salary/*</url-pattern>
+	</servlet-mapping>
+
+
+	<servlet>
+		<servlet-name>certificate</servlet-name>
+		<servlet-class>kr.co.yooooon.common.servlet.DispatcherServlet</servlet-class>
+		<init-param>
+			<param-name>configFile</param-name>
+			<param-value>/WEB-INF/config/certificate.properties</param-value>
+		</init-param>
+		<load-on-startup>6</load-on-startup>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>certificate</servlet-name>
+		<url-pattern>/certificate/*</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>board</servlet-name>
+		<servlet-class>kr.co.yooooon.common.servlet.DispatcherServlet</servlet-class>
+		<init-param>
+			<param-name>configFile</param-name>
+			<param-value>/WEB-INF/config/board.properties</param-value>
+		</init-param>
+		<load-on-startup>7</load-on-startup>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>board</servlet-name>
+		<url-pattern>/board/*</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>chat</servlet-name>
+		<servlet-class>kr.co.yooooon.common.servlet.DispatcherServlet</servlet-class>
+		<init-param>
+			<param-name>configFile</param-name>
+			<param-value>/WEB-INF/config/chat.properties</param-value>
+		</init-param>
+		<load-on-startup>8</load-on-startup>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>chat</servlet-name>
+		<url-pattern>/chat/*</url-pattern>
+	</servlet-mapping>
+
+
+
+	<servlet>
+		<servlet-name>new_emp</servlet-name>
+		<servlet-class>kr.co.yooooon.common.servlet.DispatcherServlet</servlet-class>
+		<init-param>
+			<param-name>configFile</param-name>
+			<param-value>/WEB-INF/config/new_emp.properties</param-value>
+		</init-param>
+		<load-on-startup>9</load-on-startup>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>new_emp</servlet-name>
+		<url-pattern>/new_emp/*</url-pattern>
+	</servlet-mapping>
+	
+	
+	<servlet>
+		<servlet-name>system</servlet-name>
+		<servlet-class>kr.co.yooooon.common.servlet.DispatcherServlet</servlet-class>
+		<init-param>
+			<param-name>configFile</param-name>
+			<param-value>/WEB-INF/config/system.properties</param-value>
+		</init-param>
+		<load-on-startup>10</load-on-startup>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>system</servlet-name>
+		<url-pattern>/system/*</url-pattern>
+	</servlet-mapping>
+	
+	<description></description>
+
+	
+		
+	<context-param>
+		<param-name>urlmappingFile</param-name>
+		<param-value>/WEB-INF/config/urlmapping.properties</param-value>
+	</context-param>
+	<context-param>
+		<param-name>pathFile</param-name>
+		<param-value>/WEB-INF/config/path.properties</param-value>
+	</context-param>
+
+</web-app>
